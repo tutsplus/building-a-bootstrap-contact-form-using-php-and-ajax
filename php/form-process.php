@@ -39,12 +39,11 @@ $Body .= "Message: ";
 $Body .= $message;
 $Body .= "\n";
 
-// send email
-$success = mail($EmailTo, $Subject, $Body, "From:".$email);
-
 // redirect to success page
-if ($success && $errorMSG == ""){
-   echo "success";
+if ($errorMSG == ""){
+	// send email
+	$success = mail($EmailTo, $Subject, $Body, "From:".$email);
+	echo "success";
 }else{
     if($errorMSG == ""){
         echo "Something went wrong :(";
